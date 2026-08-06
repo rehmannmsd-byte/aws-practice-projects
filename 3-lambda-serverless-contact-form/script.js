@@ -1,4 +1,4 @@
-const API_URL = "https://qusdou5f5a.execute-api.ap-south-1.amazonaws.com/contact";
+const API_URL = "paste your API Gateway URL here"; // Replace with your actual API Gateway URL
 
 const form = document.getElementById("contactForm");
 const status = document.getElementById("status");
