@@ -1,4 +1,4 @@
-# 🚀 AWS Project 2 - EC2 Linux Server Bootstrap with Nginx, Flask & CloudWatch
+# 🚀 AWS Project 1 - EC2 Linux Server Bootstrap with Nginx, Flask & CloudWatch
 
 ## 📖 Overview
 

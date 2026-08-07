@@ -1,4 +1,4 @@
-# 🌐 AWS Project 1 - Static Website Hosting with Amazon S3 & CloudFront
+# 🌐 AWS Project 2 - Static Website Hosting with Amazon S3 & CloudFront
 
 ## 📖 Overview
 
