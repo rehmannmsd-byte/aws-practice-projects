@@ -1,0 +1,9 @@
+{
+  "event_type": "payment_completed",
+  "event_id": "evt-1002",
+  "customer_id": "cust-502",
+  "amount": 2500,
+  "currency": "INR",
+  "payment_method": "card",
+  "timestamp": "2026-08-20T19:05:00Z"
+}

@@ -1,0 +1,8 @@
+{
+  "event_type": "order_created",
+  "event_id": "evt-1001",
+  "customer_id": "cust-501",
+  "amount": 1250,
+  "currency": "INR",
+  "timestamp": "2026-08-20T19:00:00Z"
+}

@@ -1,0 +1,7 @@
+{
+  "event_type": "user_registered",
+  "event_id": "evt-1003",
+  "customer_id": "cust-503",
+  "email": "demo@example.com",
+  "timestamp": "2026-08-20T19:10:00Z"
+}

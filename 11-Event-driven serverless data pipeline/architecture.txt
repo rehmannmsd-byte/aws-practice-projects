@@ -1,0 +1,119 @@
+==========================================================
+        EVENT-DRIVEN DATA PIPELINE
+==========================================================
+
+
+                       EVENT PRODUCER
+                             |
+                             |
+                             v
+                  +----------------------+
+                  |     Amazon SQS       |
+                  |   event-pipeline-    |
+                  |       queue          |
+                  +----------+-----------+
+                             |
+                             |
+                     Lambda Trigger
+                             |
+                             v
+                  +----------------------+
+                  |      AWS Lambda      |
+                  | EventPipelineProcessor|
+                  +----------+-----------+
+                             |
+                             |
+                       Process Event
+                             |
+                             v
+                  +----------------------+
+                  |      Amazon S3       |
+                  |   Processed Events   |
+                  +----------+-----------+
+                             |
+                             |
+                  +----------v-----------+
+                  |  Date/Event Type     |
+                  |     Partitions       |
+                  +----------------------+
+
+
+----------------------------------------------------------
+                     FAILURE PATH
+----------------------------------------------------------
+
+SQS
+ |
+ v
+Lambda
+ |
+ X
+Processing Failure
+ |
+ v
+Retry
+ |
+ X
+Retry
+ |
+ X
+Retry
+ |
+ v
+DLQ
+
+
+----------------------------------------------------------
+                    MONITORING
+----------------------------------------------------------
+
+SQS
+ |
+ v
+CloudWatch
+ |
+ v
+SQS Backlog Alarm
+ |
+ v
+SNS
+ |
+ v
+Email Notification
+
+
+----------------------------------------------------------
+                    S3 STRUCTURE
+----------------------------------------------------------
+
+event-pipeline-results/
+|
++-- event_type=order_created/
+|   |
+|   +-- year=2026/
+|       |
+|       +-- month=08/
+|           |
+|           +-- day=20/
+|               |
+|               +-- evt-1001.json
+|
++-- event_type=payment_completed/
+|   |
+|   +-- year=2026/
+|       |
+|       +-- month=08/
+|           |
+|           +-- day=20/
+|               |
+|               +-- evt-1002.json
+|
++-- event_type=user_registered/
+    |
+    +-- year=2026/
+        |
+        +-- month=08/
+            |
+            +-- day=20/
+                |
+                +-- evt-1003.json
