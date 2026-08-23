@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: YOUR_DOCKERHUB_USERNAME/eks-demo
+  repository: 071231919865.dkr.ecr.ap-south-1.amazonaws.com/eks-kubernetes-demo:1.0
   tag: "1.0"
   pullPolicy: IfNotPresent
 

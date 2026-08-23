@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: eks-demo
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/rehmannmsd-byte/aws-practice-projects.git
+    targetRevision: main
+    path: 13-eks-gitops-argocd/helm/eks-demo
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: eks-demo
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
