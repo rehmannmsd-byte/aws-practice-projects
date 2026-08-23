@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autoscaler-test
+  namespace: eks-demo
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: autoscaler-test
+  template:
+    metadata:
+      labels:
+        app: autoscaler-test
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          resources:
+            requests:
+              cpu: "700m"
+              memory: "128Mi"
+            limits:
+              cpu: "700m"
+              memory: "128Mi"
